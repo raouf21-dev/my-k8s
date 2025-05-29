@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: k8s-pod
+  namespace: my-k8s-namespace
+spec:
+  containers:
+  - name: my-k8s-container 
+    image: santana20095/my-k8s:1.0
+    ports:
+    - containerPort:  3000

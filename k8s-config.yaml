@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: k8s-configmap 
+  namespace: my-k8s-namespace
+data: 
+  configFile.conf:  |
+    MESSAGE: "Hello From ConfigMap"
