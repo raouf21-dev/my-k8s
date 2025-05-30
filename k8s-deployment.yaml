@@ -1,7 +1,8 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: k8s-pod
+  name: k8s-deployment
   namespace: my-k8s-namespace
 spec:
   replicas: 3
@@ -14,7 +15,20 @@ spec:
         app: k8s
     spec:
       containers:
-      - name: k8s-container
-        image: santana20095/my-k8s:1.0
-        ports:
-        -  containerPort: 3000
+        - name: k8s-container
+          image: santana20095/my-k8s:1.0
+          ports: 
+          - containerPort: 3000
+          volumeMounts:
+            - name: k8s-configmap
+              mountPath: /app/config
+            - name: k8s-secret
+              mountPath: /app/secret
+              readOnly: true
+      volumes:
+        - name: k8s-configmap
+          configMap:
+            name: k8s-configmap
+        - name: k8s-secret
+          secret:
+            secretName: k8s-secret

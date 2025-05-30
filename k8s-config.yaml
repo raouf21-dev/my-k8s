@@ -5,4 +5,4 @@ metadata:
   namespace: my-k8s-namespace
 data: 
   configFile.conf:  |
-    MESSAGE: "Hello From ConfigMap"
+    MESSAGE "Hello From ConfigMap"
